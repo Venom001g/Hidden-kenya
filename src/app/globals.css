@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/*
+ * Hidden Kenya design tokens
+ *   ivory      #F7F2E8  page
+ *   paper      #FBF8F1  raised surfaces
+ *   sand       #EADFCB  quiet fills
+ *   sand-deep  #D6C6A8  borders and rules
+ *   forest     #1D4A37  primary actions, brand
+ *   charcoal   #24231F  text
+ *   stone      #5B5A52  secondary text (6.3:1 on ivory)
+ *   terracotta #A3462A  restrained accent: alerts, the horizon line (5.6:1 on ivory)
+ */
+@theme {
+  --color-ivory: #f7f2e8;
+  --color-paper: #fbf8f1;
+  --color-sand: #eadfcb;
+  --color-sand-deep: #d6c6a8;
+  --color-forest: #1d4a37;
+  --color-forest-deep: #133326;
+  --color-forest-soft: #dfe8e0;
+  --color-charcoal: #24231f;
+  --color-stone: #5b5a52;
+  --color-terracotta: #a3462a;
+  --color-terracotta-soft: #f3e1d7;
+  --color-danger: #9a2b1d;
+  --color-danger-soft: #f6dfda;
+
+  --font-display: var(--font-young-serif), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+
+  --text-display: 3.25rem;
+  --text-display--line-height: 1.04;
+
+  --radius-card: 14px;
+  --radius-control: 10px;
+
+  --shadow-raised: 0 1px 0 rgb(36 35 31 / 0.04), 0 8px 24px -12px rgb(36 35 31 / 0.18);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--color-ivory);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: var(--color-forest);
+    color: var(--color-paper);
+  }
+  :focus-visible {
+    outline: 2.5px solid var(--color-forest);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  [hidden] {
+    display: none !important;
+  }
+}
+
+@layer components {
+  .prose-hk {
+    max-width: 68ch;
+    line-height: 1.65;
+  }
+  .prose-hk p + p {
+    margin-top: 1em;
+  }
+  .prose-hk h2 {
+    font-size: 1.5rem;
+    margin: 1.8em 0 0.5em;
+  }
+  .prose-hk h3 {
+    font-size: 1.2rem;
+    margin: 1.4em 0 0.4em;
+  }
+  .prose-hk ul {
+    list-style: disc;
+    padding-left: 1.25em;
+    margin: 0.75em 0;
+  }
+  .prose-hk li + li {
+    margin-top: 0.35em;
+  }
+  .prose-hk a {
+    color: var(--color-forest);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes horizon-rise {
+  from {
+    transform: translateY(18px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.animate-horizon {
+  animation: horizon-rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}

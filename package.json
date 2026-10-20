@@ -1,0 +1,56 @@
+{
+  "name": "hidden-kenya",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "vitest run",
+    "test:db": "vitest run -c vitest.db.config.ts",
+    "test:e2e": "playwright test",
+    "check": "npm run lint && npm run typecheck && npm test",
+    "db:types": "tsx scripts/gen-db-types.ts",
+    "db:test:reset": "scripts/db-test-reset.sh",
+    "admin:bootstrap": "tsx scripts/bootstrap-admin.ts",
+    "import:destinations": "tsx scripts/import-destinations.ts"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.9.2",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.118.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.59.0",
+    "next": "16.4.2",
+    "radix-ui": "^1.8.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-hook-form": "^7.90.0",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.5",
+    "tailwind-merge": "^3.7.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "@tailwindcss/turbopack": "^4",
+    "@types/node": "^22.20.5",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.2",
+    "pg": "^8.23.1",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "vitest": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=20.9"
+  }
+}

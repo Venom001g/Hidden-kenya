@@ -1,0 +1,18 @@
+# Supabase CLI / GitHub integration config. Only non-default values are set; the CLI fills the rest.
+# Hosted project settings (auth URLs, SMTP) are configured in the dashboard, see docs/supabase-setup.md.
+project_id = "hidden-kenya"
+
+[db]
+major_version = 17
+
+[db.seed]
+# No seed data: the platform launches empty by design (reference data is in migrations).
+enabled = false
+
+[auth]
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["http://localhost:3000/**"]
+minimum_password_length = 10
+
+[auth.email]
+enable_confirmations = true
